@@ -40,16 +40,16 @@ def ships_placed(board):
                         row, column, orientation = user_input(ship_placed)
                         if check_ships_fit(ship_position, row, column, orientation):
                             #check if the ship has overlap
-                            if overlap_ships(board, row, column, orientation, ship_position) == False:
-                                #place your ship
-                                if orientation == "H":
-                                    for i in range(column, column + ship_position):
-                                        board[row][i] = "X"
-                                else:
-                                    for i in range(row, row + ship_position):
-                                        board[i][column] = "X"
-                                        print_board(PLAYER_BOARD)
-                                        break
+                                if overlap_ships(board, row, column, orientation, ship_position) == False:
+                                    #place your ship
+                                    if orientation == "H":
+                                        for i in range(column, column + ship_position):
+                                            board[row][i] = "X"
+                                    else:
+                                        for i in range(row, row + ship_position):
+                                            board[i][column] = "X"
+                                    print_board(PLAYER_BOARD)
+                                    break
 
 def check_ships_fit(SHIP_POSITION, row, column, orientation):
     if orientation == "H":
@@ -75,8 +75,50 @@ def overlap_ships(board, row, column, orientation, ship_position):
                 return True
     return False
 
-def user_input():
-    pass
+def user_input(ship_placed):
+    if ship_placed == True:
+        while True:
+            try:
+                orientation = input("Enter orientation (H or V): ").upper()
+                if orientation == "H" or orientation == "V":
+                    break
+            except TypeError:
+                print('Please enter a valid orientation H or V')
+        while True:
+            try:
+                row = input("Enter the row 1-8 for your ship: ")
+                if row in '12345678':
+                    row = int(row) - 1
+                    break
+            except ValueError:
+                print('Enter a valid number between 1-8')
+        while True:
+            try:
+                column = input("Enter the column A-H for your ship: ").upper()
+                if column in 'ABCDEFGH':
+                    column = LETTERS_TO_NUMBERS[column]
+                    break
+            except KeyError:
+                print('Enter a valid letter between A-H')
+            return row, column, orientation
+        else:
+            while True:
+                try:
+                    row = input("Enter the column of the ship: ")
+                    if row in '12345678':
+                        row = int(row) - 1
+                        break
+                except ValueError:
+                    print('Enter a valid number between 1-8')
+            while True:
+                try:
+                    column = input("Enter the column of the ship: ").upper()
+                    if column in 'ABCDEFGH':
+                        column = LETTERS_TO_NUMBERS[column]
+                        break
+                except KeyError:
+                    print('Enter a valid letter between A-H')
+            return row, column 
 
 def count_hit_ships():
     pass
