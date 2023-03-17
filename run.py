@@ -24,22 +24,56 @@ def ships_placed(board):
             if board == COMPUTER_BOARD:
                 orientation, row, column = random.choice(["H","V"]), random.randint(0, 7), random.randint(0, 7)
                 if check_ships_fit(ship_position, row, column, orientation):
+                #checking to see if ship overlaps
+                    if overlap_ships(board, row, column, orientation, ship_position) == False:
+                        #place the ship
+                        if orientation == "H":
+                            for i in range(column, column + ship_position):
+                                board[row][i] = "X"
+                        else:
+                            for i in range(row, row + ship_position):
+                                board[i][column] = "X"
+                        break
+                    else:
+                        ship_placed = True
+                        print('Place a ship with a length of' + str(ship_position))
+                        row, column, orientation = user_input(ship_placed)
+                        if check_ships_fit(ship_position, row, column, orientation):
+                            #check if the ship has overlap
+                            if overlap_ships(board, row, column, orientation, ship_position) == False:
+                                #place your ship
+                                if orientation == "H":
+                                    for i in range(column, column + ship_position):
+                                        board[row][i] = "X"
+                                else:
+                                    for i in range(row, row + ship_position):
+                                        board[i][column] = "X"
+                                        print_board(PLAYER_BOARD)
+                                        break
 
-def check_ships_fit(ship_position, row, column, orientation):
+def check_ships_fit(SHIP_POSITION, row, column, orientation):
     if orientation == "H":
-        if column + ship_position > 8:
-            returns False
+        if column + SHIP_POSITION > 8:
+            return False
         else:
             return True
     else:
-        if row + ship_position > 8:
+        if row + SHIP_POSITION > 8:
             return False
         else:
             return True
 
 
-def overlap_ships():
-    pass
+def overlap_ships(board, row, column, orientation, ship_position):
+    if orientation == "H":
+        for i in range(column, column + ship_position):
+            if board[row][i] == "X":
+                return True
+    else:
+        for i in range(row, row + ship_position):
+            if board[i][column] == "X":
+                return True
+    return False
 
 def user_input():
     pass
