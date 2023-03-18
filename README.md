@@ -137,3 +137,6 @@ This project was deployed in Heroduk using the Code Institute's terminal.
     - Set the buildbacks to 'Python' and 'NodeJS' in that order. 
     - Link the Heroku app to the battleship repository.
     - Click [Deploy Branch](https://project-3-python-battleship.herokuapp.com/)
+
+## Credit
+- The framework I used to build this battleship game is from a Youtube python tutorial created by [Knowledge Mavens](https://www.youtube.com/watch?v=tF1WRCrd_HQ)
