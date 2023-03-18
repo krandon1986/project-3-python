@@ -35,3 +35,11 @@ def get_battleship_location():
         print('Please enter a valid column letter')
         column = input('Please enter a column letter from A-H' ).upper()
     return int(row) - 1, LETTERS_TO_NUMBERS[column]
+
+    def count_hit_battlefield(board):
+        count = 0
+        for row in board:
+            for column in row:
+                if column == 'X':
+                    count += 1
+        return count
