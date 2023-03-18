@@ -96,4 +96,23 @@ You will lose the game if you hit 15 areas on the board and haven't destroy all 
 ![loss game](assets/screenshots/lost_game.png) 
 
 
+## Data Model
+
+I created two instance of the board that holds the computer's and guess' board. 
+
+Each number row and columns of the board will be 8, with each value be an empty string.
+
+As the column will be labeled in letters, I need to convert it into numbers.
+
+Create print_board function to create a template board with '8' rows and '8' columns. Start the row number with '1' so that first row doesn't start at '0'. 
+
+I create a function that create the computer ships on the board. The 'For' statement create five ships, and place them across the row and column from '0' to '7'. In the while loop, each ship is represented with a 'X' and they place randomly across the row and columns from '0' to '7'. 
+
+The get_battleship_location function allow the user to start the game by selecting a row number and then column letter. If the value that the user inputed matchs row and column criteria, they both return the value. In row, the value returns as a integer minus 1. In column, the letters are coverted into numbers. 
+
+The count_hit_battlefield function using the 'for loop' and 'if' statement to loops the rows and columns on the board to if the 'X' exist. If the 'X' does exist in area that is selected, the counter will count as 1 and return it to the counter which upgraded from this "count = 0" to "count = 1". 
+
+The final lines of code is to print out the two boards (ship board and guess board) and write the if and else statments under while loop,so the user can run the game. Before while loop, I have enter '15' as the amount of turns the user uses. Each time is played, the amount of turn is subtract from start of the while loop. The if/else and elif statements will ensure that games run smoothly. If the user hits a target, elif statement will print the suitable message inform the user of their success and place a 'X' on the board. If the user miss, the else statement will print out a suitable and place a '/' on the board. The last two 'if' statements ends the game when the value of battleship hit on the 'GUESS_BOARD' equal to '5', or when turn counter 'turns = 15' hit '0'. Former lead to a win, while the latter lead to a loss. 
+
+
 

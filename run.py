@@ -39,11 +39,11 @@ def create_battleships(board):
 
 def get_battleship_location():
     row = input('Please enter a row number from 1-8: ')
-    while row not in '1,2,3,4,5,6,7,8':
+    while row not in '1,2,3,4,5,6,7,8, ':
         print('Please enter a valid row number')
         row = input('Please enter a row number from 1-8: ')
     column = input('Please enter a column letter from A-H: ').upper()
-    while column not in 'A,B,C,D,E,F,G,H':
+    while column not in 'A,B,C,D,E,F,G,H, ':
         print('Please enter a valid column letter')
         column = input('Please enter a column letter from A-H: ').upper()
     return int(row) - 1, LETTERS_TO_NUMBERS[column]
