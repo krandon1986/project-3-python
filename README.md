@@ -118,6 +118,10 @@ The final lines of code is to print out the two boards (ship board and guess boa
 
 ## Testing 
 I have manually testing project by:
-- __Passing the code through PEP8 Python Validator and encounter lots of problems, but managed to cut down to eleven. Nine of them is about trailing whitespace__
-- __Given invalid inputs: enter a string value into a number field, input out-of-bound values, input the same value__
-- __Tested the program on the gitpod terminal and Heroku terminal__
+- Passing the code through PEP8 Python Validator and encounter lots of problems, but managed to cut down to eleven. Nine of them is about trailing whitespace
+- Given invalid inputs: enter a string value into a number field, input out-of-bound values, input the same value
+- Tested the program on the gitpod terminal and Heroku terminal
+
+### Bug
+- When I entered '12' in row input, the program crashed. The reason for this is in the while loop under get_battlefield_location function,  it was suppose to display an error message if the value doesn't match the list of numbers from 1 to 8 inside a single string. The eight numbers wasn't separated with a comma, so any double figures like '12' '23' '34' '45' '56' '67' '78' that is inputted would pass the criteria, which resulted in the program to crash.
+- I encountered the same problem when I entered double letter values in the row input. Like the last problem, I place comma between every letter. 
