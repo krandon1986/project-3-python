@@ -24,3 +24,14 @@ def create_battleships(board):
         while board[ship_row][ship_column] == 'X':
             ship_row, ship_column = randint(0, 7), randint(0, 7)
         board[ship_row][ship_column] = 'X'
+
+def get_battleship_location():
+    row = input('Please enter a row number from 1-8 ')
+    while row not in '12345678':
+        print('Please enter a valid row number')
+        row = input('Please enter a row number from 1-8 ')
+    column = input('Please enter a column letter from A-H ').upper()
+    while column not in 'ABCDEFGH':
+        print('Please enter a valid column letter')
+        column = input('Please enter a column letter from A-H' ).upper()
+    return int(row) - 1, LETTERS_TO_NUMBERS[column]
