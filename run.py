@@ -1,4 +1,4 @@
-
+from random import randint
 
 
 
@@ -16,3 +16,11 @@ def print_board(board):
     for row in board:
         print(f"%d|%s|" % (row_number, "|".join(row)))
         row_number += 1
+
+#The computer create 5 ships
+def create_battleships(board):
+    for ship in range(5):
+        ship_row, ship_column = randint(0, 7), randint(0, 7)
+        while board[ship_row][ship_column] == 'X':
+            ship_row, ship_column = randint(0, 7), randint(0, 7)
+        board[ship_row][ship_column] = 'X'
