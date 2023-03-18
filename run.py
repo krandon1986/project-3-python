@@ -150,4 +150,26 @@ def turn(board):
         else:
             board[row][column] = "/"
 
-#while True:
+ships_placed(COMPUTER_BOARD)
+print_board(COMPUTER_BOARD)
+print_board(PLAYER_BOARD)
+ships_placed(PLAYER_BOARD)
+
+while True:
+    #Player turn
+    while True:
+        print("Find the ships' location")
+        print_board(GUESS_BOARD_PLAYER)
+        turn(GUESS_BOARD_PLAYER)
+        break
+    if count_hit_ships(GUESS_BOARD_PLAYER) == 17:
+        print("Congratulation, you have won!")
+        break
+    #Computer turn
+    while True:
+        turn(GUESS_BOARD_COMPUTER)
+        break
+    print_board(GUESS_BOARD_COMPUTER)
+    if count_hit_ships(GUESS_BOARD_COMPUTER) == 17:
+        print("Tough luck, the computer has won.")
+        break 
