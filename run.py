@@ -129,6 +129,25 @@ def count_hit_ships(board):
     return count
 
 def turn(board):
-    pass
+    if board == GUESS_BOARD_PLAYER:
+        row, column = user_input(GUESS_BOARD_PLAYER)
+        if board[row][column] == "/":
+            turn(board)
+        elif board[row][column] == "X":
+            turn(board)
+        elif COMPUTER_BOARD[row][column] == "X":
+            board[row][column] = "X"
+        else:
+            board[row][column] = "/"
+    else:
+        row, column = random.randint(0, 7), random.randint(0, 7)
+        if board[row][column] == "/":
+            turn(board)
+        elif board[row][column] == "X":
+            turn(board)
+        elif PLAYER_BOARD[row][column] == "X":
+            board[row][column] = "X"
+        else:
+            board[row][column] = "/"
 
 #while True:
