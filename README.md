@@ -116,3 +116,8 @@ The final lines of code is to print out the two boards (ship board and guess boa
 
 
 
+## Testing 
+I have manually testing project by:
+- __Passing the code through PEP8 Python Validator and encounter lots of problems, but managed to cut down to eleven. Nine of them is about trailing whitespace__
+- __Given invalid inputs: enter a string value into a number field, input out-of-bound values, input the same value__
+- __Tested the program on the gitpod terminal and Heroku terminal__
