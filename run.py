@@ -45,7 +45,8 @@ def count_hit_battlefield(board):
     return count
 
 create_battleships(SHIP_BOARD)
-turns = 10
+print_board(SHIP_BOARD)
+turns = 15
 while turns > 0:
     print('Welcome to Battleship')
     print_board(GUESS_BOARD)
@@ -53,7 +54,7 @@ while turns > 0:
     if GUESS_BOARD[row][column] == '/':
         print('You have aleady selected that area.')
     elif SHIP_BOARD[row][column] == 'X':
-        print(' Good shot, you have hit the battleship')
+        print('Good shot, you have hit the battleship')
         GUESS_BOARD[row][column] = 'X'
         turns -= 1
     else:
