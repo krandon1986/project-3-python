@@ -125,3 +125,15 @@ I have manually testing project by:
 ### Bug
 - When I entered '12' in row input, the program crashed. The reason for this is in the while loop under get_battlefield_location function,  it was suppose to display an error message if the value doesn't match the list of numbers from 1 to 8 inside a single string. The eight numbers wasn't separated with a comma, so any double figures like '12' '23' '34' '45' '56' '67' '78' that is inputted would pass the criteria, which resulted in the program to crash.
 - I encountered the same problem when I entered double letter values in the row input. Like the last problem, I place comma between every letter. 
+
+## Deployment
+This project was deployed in Heroduk using the Code Institute's terminal.
+- Step for deployment:
+    - Clone the the battleship repository.
+    - Create a new Heroku app.
+    - Name the new Heroku app.
+    - Go on setting and click the 'Reveal Config Vars' button.
+    - Enter 'PORT' as a key and 8000 as value.
+    - Set the buildbacks to 'Python' and 'NodeJS' in that order. 
+    - Link the Heroku app to the battleship repository.
+    - Click [Deploy Branch](https://project-3-python-battleship.herokuapp.com/)
