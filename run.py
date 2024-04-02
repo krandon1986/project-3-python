@@ -67,7 +67,6 @@ def count_hit_battlefield(board):
 
 
 create_battleships(SHIP_BOARD)
-print_board(SHIP_BOARD)
 turns = 15
 while turns > 0:
     print('Welcome to Battleship')
@@ -78,9 +77,9 @@ while turns > 0:
     elif GUESS_BOARD[row][column] == '-':
         print('You have already destroyed this target.')
     elif SHIP_BOARD[row][column] == 'X':
-        print('Good shot, you have hit the battleship.')
+        print('Good shot, you have hit the battleship. Two extra turns')
         GUESS_BOARD[row][column] = '-'
-        turns -= 1
+        turns += 2
     else:
         print('Sorry, you missed your target')
         GUESS_BOARD[row][column] = '/'
@@ -91,4 +90,5 @@ while turns > 0:
     print('You have ' + str(turns) + ' turns remaining')
     if turns == 0:
         print('Sorry, you have ran out of turns. Game Over!')
+        print_board(SHIP_BOARD)
         break
