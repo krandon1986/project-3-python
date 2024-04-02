@@ -41,7 +41,7 @@ def get_battleship_location():
     while True:
         try:
             row = input('Please enter a row number from 1-8: ')
-            if row in '12345678':
+            if row in '1, 2, 3, 4, 5, 6, 7, 8':
                 row = int(row) - 1
                 break
         except ValueError:
