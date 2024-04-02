@@ -38,15 +38,23 @@ def create_battleships(board):
 
 
 def get_battleship_location():
-    row = input('Please enter a row number from 1-8: ')
-    while row not in '1,2,3,4,5,6,7,8,':
-        print('Please enter a valid row number')
-        row = input('Please enter a row number from 1-8: ')
-    column = input('Please enter a column letter from A-H: ').upper()
-    while column not in 'A,B,C,D,E,F,G,H,':
-        print('Please enter a valid column letter')
-        column = input('Please enter a column letter from A-H: ').upper()
-    return int(row) - 1, LETTERS_TO_NUMBERS[column]
+    while True:
+        try:
+            row = input('Please enter a row number from 1-8: ')
+            if row in '12345678':
+                row = int(row) - 1
+                break
+        except ValueError:
+            print('Please enter a valid row number')
+    while True:
+        try:    
+            column = input('Please enter a column letter from A-H: ').upper()
+            if column in 'ABCDEFGH':
+                column = LETTERS_TO_NUMBERS[column]
+                break
+        except KeyError:
+                print('Please enter a valid column letter')
+    return row, column
 
 
 def count_hit_battlefield(board):
@@ -67,9 +75,11 @@ while turns > 0:
     row, column = get_battleship_location()
     if GUESS_BOARD[row][column] == '/':
         print('You have aleady selected that area.')
+    elif GUESS_BOARD[row][column] == '-':
+        print('You have already destroyed this target.')
     elif SHIP_BOARD[row][column] == 'X':
-        print('Good shot, you have hit the battleship')
-        GUESS_BOARD[row][column] = 'X'
+        print('Good shot, you have hit the battleship.')
+        GUESS_BOARD[row][column] = '-'
         turns -= 1
     else:
         print('Sorry, you missed your target')
