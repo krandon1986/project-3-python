@@ -67,7 +67,7 @@ def count_hit_battlefield(board):
 
 
 create_battleships(SHIP_BOARD)
-turns = 15
+turns = 20
 while turns > 0:
     print('Welcome to Battleship')
     print_board(GUESS_BOARD)
