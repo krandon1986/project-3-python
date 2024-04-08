@@ -4,9 +4,11 @@ from random import randint
 
 # This is a board for holding ship locations
 SHIP_BOARD = [[' '] * 8 for x in range(8)]  
+
 # This is a board displaying the hits and misses 
 GUESS_BOARD = [[' '] * 8 for x in range(8)]
 
+# Translate the letter into numbers
 LETTERS_TO_NUMBERS = {
     'A': 0, 
     'B': 1, 
@@ -18,7 +20,7 @@ LETTERS_TO_NUMBERS = {
     'H': 7
 }
 
-
+# Creating the battleship board
 def print_board(board):
     print('  A B C D E F G H')
     print('  +-+-+-+-+-+-+-+')
@@ -26,7 +28,6 @@ def print_board(board):
     for row in board:
         print(f"%d|%s|" % (row_number, "|".join(row)))
         row_number += 1
-
 
 # The computer create 5 ships
 def create_battleships(board):
@@ -36,7 +37,7 @@ def create_battleships(board):
             ship_row, ship_column = randint(0, 7), randint(0, 7)
         board[ship_row][ship_column] = 'X'
 
-
+# Allow the user to select a row and column number
 def get_battleship_location():
     while True:
         try:
@@ -56,7 +57,7 @@ def get_battleship_location():
                 print('Please enter a valid column letter')
     return row, column
 
-
+# The counts of a battlefield hit
 def count_hit_battlefield(board):
     count = 0
     for row in board:
@@ -65,7 +66,7 @@ def count_hit_battlefield(board):
                 count += 1
     return count
 
-
+# Game function
 create_battleships(SHIP_BOARD)
 turns = 20
 while turns > 0:
